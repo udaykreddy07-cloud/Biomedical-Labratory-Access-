@@ -1,0 +1,83 @@
+#include <iostream>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <stack>
+#include <list>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    // Array
+    int ids[] = {105, 101, 103, 102, 104};
+
+    // Hash Map
+    unordered_map<int,string> researcher = {
+        {101,"Uday"}, {102,"Sravya"}, {103,"Poojitha"},
+        {104,"Preethi"}, {105,"Reshma"}
+    };
+
+    // Set
+    unordered_set<int> revoked = {105};
+
+    // Queue
+    queue<int> q;
+    q.push(101); q.push(102); q.push(103);
+
+    // Stack
+    stack<string> s;
+    s.push("Access Granted");
+
+    // Priority Queue
+    priority_queue<int> pq;
+    pq.push(101); pq.push(103); pq.push(102);
+
+    // Linked List
+    list<int> records = {101, 102, 103};
+
+    // Searching
+    int id;
+    cout << "Enter Researcher ID: ";
+    cin >> id;
+
+    if (researcher.find(id) != researcher.end()) {
+        cout << "Researcher: " << researcher[id] << endl;
+
+        if (revoked.count(id))
+            cout << "Access: DENIED\n";
+        else
+            cout << "Access: GRANTED\n";
+    } else {
+        cout << "Researcher Not Found\n";
+    }
+
+    // Queue
+    cout << "\nQueue: ";
+    while (!q.empty()) {
+        cout << q.front() << " ";
+        q.pop();
+    }
+
+    // Stack
+    cout << "\nStack: " << s.top();
+
+    // Priority Queue
+    cout << "\nPriority Queue: ";
+    while (!pq.empty()) {
+        cout << pq.top() << " ";
+        pq.pop();
+    }
+
+    // Linked List
+    cout << "\nLinked List: ";
+    for (int x : records)
+        cout << x << " ";
+
+    // Sorting
+    sort(ids, ids + 5);
+    cout << "\nSorted IDs: ";
+    for (int x : ids)
+        cout << x << " ";
+
+    return 0;
+}
